@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/css/normalize.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/css/foundation.min.css" rel="stylesheet" type="text/css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/js/vendor/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.0.3/js/foundation.min.js"></script>
+    <meta charset="utf-8">
+    <title>Daily Tasks</title>
+    <link rel="stylesheet" href="home.css" />
+  </head>
+
+<body>
+
+<h1>
+  <a href="#" data-reveal-id="myModal">Click here to add a task</a>
+  </h1>
+  <div id="myModal" class="reveal-modal" data-reveal>
+    <h2>What Task do you want to add?</h2>
+
+  <form action="/take_a_task" method="post">
+
+        <br>
+        <textarea style="font-size:20px" cols = "35" rows = "3" name="task"></textarea>
+        <br>
+
+          <input type="radio" name="deadline" value="Monday">Monday
+          <input type="radio" name="deadline" value="Tuesday">Tuesday
+          <input type="radio" name="deadline" value="Wednesday">Wednesday
+          <input type="radio" name="deadline" value="Thursday">Thursday
+          <input type="radio" name="deadline" value="Friday">Friday
+          <input type="radio" name="deadline" value="Saturday">Saturday
+          <input type="radio" name="deadline" value="Sunday">Sunday
+          <input type="radio" name="deadline" value="Short Term">Short Term
+          <input type="radio" name="deadline" value="Long Term">Long Term
+
+        <br>
+        <input type="submit" />
+    </form>
+ </div>
+     <a class="close-reveal-modal">&#215;</a>
+
+<form action="/delete_tasks" method="post">
+
+    <div class="row">
+    <div class="small-12 columns">
+      <ul class="medium-block-grid-7 small-block-grid-2">
+
+
+        <li>
+          <b>Mon</b>
+          <ul>
+            <%@sql_monday.each do |hash|%>
+              <span class="event green"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
+              <%end%>
+          </ul>
+        </li>
+
+        <li>
+          <b>Tue</b>
+          <ul>
+            <%@sql_tuesday.each do |hash|%>
+               <span class="event yellow"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
+              <%end%>
+          </ul>
+        </li>
+
+
+        <li>
+          <b>Wed</b>
+          <ul>
+            <%@sql_wednesday.each do |hash|%>
+              <span class="event lightblue"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
+              <%end%>
+          </ul>
+        </li>
+
+        <li>
+          <b>Thu</b>
+          <ul>
+           <%@sql_thursday.each do |hash|%>
+              <span class="event lightcoral"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
+              <%end%>
+          </ul>
+        </li>
+
+        <li>
+          <b>Fri</b>
+          <ul>
+             <%@sql_friday.each do |hash|%>
+              <span class="event rosybrown"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
+              <%end%>
+          </ul>
+        </li>
+
+        <li>
+          <b>Sat</b>
+          <ul>
+             <%@sql_saturday.each do |hash|%>
+                    <span class="event plum"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
+              <%end%>
+          </ul>
+        </li>
+
+        <li>
+          <b>Sun</b>
+          <ul>
+               <%@sql_sunday.each do |hash|%>
+                 <span class="event tomato"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
+                  <%end%>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+    <div class="row">
+    <div class="small-12 columns">
+      <ul class="medium-block-grid-0 small-block-grid-2">
+
+        <li>
+          <b>Short Term</b>
+           <%@sql_short_term.each do |hash|%>
+           <span class="event lightblue"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
+          <%end%>
+        </li>
+
+        <li>
+          <b>Long Term</b>
+        <%@sql_long_term.each do |hash|%>
+          <span class="event green"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
+          <%end%>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+Click Submit to delete selected tasks:<br><br>
+<input type="submit" />
+    </form>
+
+
+  <script>
+  $(document).foundation();
+  </script>
+
+</body>
+</html>
+
+<!--  <h1>
+  <a href="#" data-reveal-id="myModal">Click here to add a task</a>
+  </h1>
+  <div id="myModal" class="reveal-modal" data-reveal>
+    <h2>What Task do you want to add?</h2>
+
+  <form action = "/take_a_task" method = "post">
+    <div class="row">
+      <div class="large-12 columns">
+        <label>
+          <input type="text" placeholder="Enter the task here" />
+        </label>
+      </div>
+
+
+    <div class="large-12 columns">
+      <h2> When do you want to add the task for?</h2>
+      <input id="checkbox1" type="checkbox"><label for="checkbox1">Monday</label>
+      <input id="checkbox2" type="checkbox"><label for="checkbox2">Tuesday</label>
+      <input id="checkbox3" type="checkbox"><label for="checkbox3">Wednesday</label>
+      <input id="checkbox4" type="checkbox"><label for="checkbox4">Thursday</label>
+      <input id="checkbox5" type="checkbox"><label for="checkbox5">Friday</label>
+      <input id="checkbox6" type="checkbox"><label for="checkbox6">Saturday</label>
+      <input id="checkbox7" type="checkbox"><label for="checkbox7">Sunday</label>
+      <input id="checkbox8" type="checkbox"><label
+for="checkbox8">Short Term</label>
+      <input id="checkbox9" type="checkbox"><label
+for="checkbox9">Long Term</label>
+    </div>
+<input type="submit" />
+  </div>
+</div>
+  </form> -->
+
+
+<div onclick='this.style.textDecoration = "line-through"'></div>
+

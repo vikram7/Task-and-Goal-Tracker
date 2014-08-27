@@ -1,0 +1,121 @@
+/* Styles for Calendar */
+.calendar {
+  padding-bottom: 26px;
+  margin-top: 30px;
+  width: 100%;
+  display: block;
+}
+.calendar thead {
+  display: none;
+}
+@media only screen and (min-width: 767px) {
+  .calendar thead {
+    text-align: center;
+    display: block;
+  }
+}
+.calendar tbody td {
+  display: block;
+  clear: both;
+}
+@media only screen and (min-width: 767px) {
+  .calendar tbody td {
+    display: table-cell;
+    width: 50px;
+    height: 150px;
+    position: relative;
+    vertical-align: top;
+  }
+}
+.calendar tbody td span {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+.calendar .day {
+  display: block;
+  float: left;
+  width: 20px;
+  margin-right: 10px;
+}
+.calendar .inactive {
+  color: #ccc;
+}
+
+/*.row {
+  position: relative;
+}*/
+
+.row .event {
+  float: center;
+  border-radius: 10px;
+  display: block;
+  padding: 2px;
+  font-size: 1em;
+  cursor: pointer;
+  position: relative;
+  margin-top: 3px;
+
+}
+
+.row .event {
+
+}
+
+
+.row .event.blue {
+  background: #3a87ad;
+}
+.row .event.lightblue {
+  background: lightblue;
+}
+.row .event.yellow {
+  background: #f9c846;
+}
+.row .event.green {
+  background: #a7d85b;
+}
+.row .event.lightcoral {
+  background: lightcoral;
+}
+.row .event.rosybrown {
+  background: rosybrown;
+}
+.row .event.tomato {
+  background: tomato;
+}
+.row .event.plum {
+  background: plum;
+}
+
+
+
+/*  ======================================
+displaying for small
+ ======================================*/
+@media only screen and (max-width: 767px) {
+  .calendar tbody td {
+    width: 100% !important;
+  }
+  .calendar tbody td span {
+    position: relative;
+  }
+  .calendar .event {
+    float: none;
+    margin-top: 5px;
+    position: relative;
+    margin-left: 15px;
+    margin-bottom: 0;
+  }
+  .calendar tbody tr, .calendar tbody {
+    width: 100%;
+    display: block;
+  }
+}
+@media only screen and (min-width: 767px) {
+  .event {
+    width: 100%;
+    display: block;
+  }
+}
+

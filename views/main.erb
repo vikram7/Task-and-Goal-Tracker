@@ -12,10 +12,6 @@
 
 <body>
 
-<h1>
-  <a href="#" data-reveal-id="myModal">Click here to add a task</a>
-  </h1>
-  <div id="myModal" class="reveal-modal" data-reveal>
     <h2>What Task do you want to add?</h2>
 
   <form action="/take_a_task" method="post">
@@ -38,7 +34,7 @@
         <input type="submit" />
     </form>
  </div>
-     <a class="close-reveal-modal">&#215;</a>
+
 
 <form action="/delete_tasks" method="post">
 
@@ -49,66 +45,51 @@
 
         <li>
           <b>Mon</b>
-          <ul>
             <%@sql_monday.each do |hash|%>
               <span class="event green"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
               <%end%>
-          </ul>
         </li>
 
         <li>
           <b>Tue</b>
-          <ul>
             <%@sql_tuesday.each do |hash|%>
                <span class="event yellow"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
               <%end%>
-          </ul>
         </li>
-
 
         <li>
           <b>Wed</b>
-          <ul>
             <%@sql_wednesday.each do |hash|%>
               <span class="event lightblue"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
               <%end%>
-          </ul>
         </li>
 
         <li>
           <b>Thu</b>
-          <ul>
            <%@sql_thursday.each do |hash|%>
               <span class="event lightcoral"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
               <%end%>
-          </ul>
         </li>
 
         <li>
           <b>Fri</b>
-          <ul>
              <%@sql_friday.each do |hash|%>
               <span class="event rosybrown"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
               <%end%>
-          </ul>
         </li>
 
         <li>
           <b>Sat</b>
-          <ul>
              <%@sql_saturday.each do |hash|%>
                     <span class="event plum"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
               <%end%>
-          </ul>
         </li>
 
         <li>
           <b>Sun</b>
-          <ul>
                <%@sql_sunday.each do |hash|%>
                  <span class="event tomato"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
                   <%end%>
-          </ul>
         </li>
       </ul>
     </div>

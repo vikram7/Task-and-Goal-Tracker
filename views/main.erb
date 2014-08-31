@@ -13,6 +13,7 @@
 <body>
 
     <h2>What Task do you want to add?</h2>
+    <p>You can separate multiple tasks with the semicolon (;)</p>
 
   <form action="/take_a_task" method="post">
 
@@ -120,6 +121,23 @@ Click Submit to delete selected tasks:<br><br>
 <input type="submit" />
     </form>
 
+<form action="/permanently_delete" method="post">
+ <div class="row">
+    <div class="small-12 columns">
+      <ul class="medium-block-grid-0 small-block-grid-2">
+
+       <li>
+          <b>Deleted Tasks</b>
+           <%@sql_deleted.each do |hash|%>
+           <span class="event gray"><input type="checkbox" name=<%=hash["id"]%> value=<%=hash["name"]%>><label for="value2"><%= hash["name"]%></label></span>
+          <%end%>
+        </li>
+      </ul>
+    </div>
+  </div>
+Click Submit to permanently delete selected tasks:<br><br>
+<input type="submit" />
+    </form>
 
   <script>
   $(document).foundation();

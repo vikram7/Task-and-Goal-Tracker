@@ -1,40 +1,7 @@
-/* Styles for Calendar */
-.calendar {
-  padding-bottom: 26px;
-  margin-top: 30px;
-  width: 100%;
-  display: block;
-}
-.calendar thead {
-  display: none;
-}
-@media only screen and (min-width: 767px) {
-  .calendar thead {
-    text-align: center;
-    display: block;
-  }
-}
-.calendar tbody td {
-  display: block;
-  clear: both;
-}
-@media only screen and (min-width: 767px) {
-  .calendar tbody td {
-    display: table-cell;
-    width: 50px;
-    height: 150px;
-    position: relative;
-    vertical-align: top;
-  }
-}
-.calendar tbody td span {
-  position: absolute;
-  top: 5px;
-  left: 5px;
-}
-
-.calendar .inactive {
-  color: #ccc;
+p {
+  margin-top: 0px;
+  font-size: 10pt;
+  color: gray;
 }
 
 ul {
@@ -85,6 +52,9 @@ ul {
   background: plum;
 }
 
+.row .event.gray {
+  background: lightgray;
+}
 
 
 /*  ======================================
